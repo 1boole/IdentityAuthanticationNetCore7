@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@model RegisterViewModel
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+
+                    <form asp-controller="Home" asp-action="Register" method="post" enctype="multipart/form-data">
+                        <div class="card-body p-5 text-center">
+                          
+                            <h6><a asp-controller="Home" asp-action="Login" class="nav-link">Login Page</a></h6>
+
+                            <h3 class="mb-5">Sign Up</h3>
+                            @if (TempData["Message"] != null)
+                            {
+                                <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+                                    <div class="toast-header">
+                                        <strong class="mr-auto">Error</strong>
+                                        <small>11 mins ago</small>
+                                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="toast-body">
+                                        @TempData["Message"]
+
+                                    </div>
+                                </div>
+
+                            }
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Username">User Name</label>
+                                <input asp-for="Username" class="form-control form-control-lg" required />
+                            </div>
+                            <span asp-validation-for="Username" class="text-danger"></span>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Email">Email</label>
+                                <input asp-for="Email" class="form-control form-control-lg" required />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Password">Password</label>
+                                <input asp-for="Password" type="password" class="form-control" required />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="PhotoUpload">Photo</label>
+                                <input asp-for="PhotoUpload" class="form-control form-control-lg" required />
+                            </div>
+                            <span asp-validation-for="PhotoUpload" class="text-danger"></span>
+                            <br />
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+
+                            <hr class="my-4">
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

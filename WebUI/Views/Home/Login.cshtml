@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+@model LoginModelViewModel
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <form asp-controller="Home" asp-action="Login" method="post">
+                        <div class="card-body p-5 text-center">
+
+                            <h3 class="mb-5">Sign in</h3>
+                            <h6><a asp-controller="Home" asp-action="Register" class="nav-link">Register Page</a></h6>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Username">User Name</label>
+                                <input asp-for="Username" class="form-control form-control-lg" required />
+                            </div>
+                            <span asp-validation-for="Username" class="text-danger"></span>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Password">Password</label>
+                                <input asp-for="Password" type="password" class="form-control" required />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <br />
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+
+                            <hr class="my-4">
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
